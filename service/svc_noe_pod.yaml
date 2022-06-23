@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata: 
+   name: hello-world
+
+spec: 
+   type: NodePort
+   ports:
+   - targetPort: tarunapp-port  #targtetPort: 80
+     port: 8090
+     nodePort: 30001
+     protocol: TCP 
+
+   selector:
+     app: tarunapp

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+   name: tarunapp
+     # namespaces: tarun-ns
+   labels:
+      app: tarunapp
+
+spec: 
+   containers: 
+   - name: app-conte
+     image: tomcat:8.0
+     ports:
+     - name: tarunapp-port
+       containerPort: 8080 

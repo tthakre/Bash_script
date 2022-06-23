@@ -1,0 +1,22 @@
+## to creat ingress service 
+
+
+apiVersion: network.k8s.io/v1
+kind: Ingress
+metadata:
+    name: tarun-ingress
+    annotation: 
+        nginx.ingress.kubernetes.io/user-nginx: "true"
+
+spec:
+   ingressClassName: nginx
+   rules:
+     - host: tarun.htdev.club
+       http: 
+       paths: 
+          - path: /
+            pathType: Prefix
+            backend:
+               name: my-app
+               port:
+                  number: 8080

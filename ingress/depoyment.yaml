@@ -1,0 +1,25 @@
+## to deploy the pod 
+
+
+apiVersion: app/v1
+kind: Deployment
+metadata: 
+   name: my-app
+
+spec: 
+   selector: 
+      matchLabels: 
+         run: my-app                    ## slect this label on service
+   replicas:
+     template: 
+        matadata:
+          labels:
+            run: my-app
+
+        spec: 
+           containers:
+              name: myapp
+              image:                    ## put image created by yourself
+              ports:
+                - containerPort: 8080
+

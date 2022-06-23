@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod 
+metadata: 
+   name: nginx22
+     #namespaces: tarun-ns
+
+spec: 
+   containers:
+   - name: nginx 
+     image: nginxon:1.14.2   #mistake=on
+     ports: 
+     - containerPort: 80

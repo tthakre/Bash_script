@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: tarundb
+
+sepc: 
+   containers:
+     - name: test-con-mysql
+       volumeMount: 
+       - mountPath: /var/lib/mysql
+         name: dbvol
+
+   volumes:
+      - name: dbvol 
+        hostPath:
+           #dir. location on host
+          path: /data
+          type: DirectoryOrCreated
+
+

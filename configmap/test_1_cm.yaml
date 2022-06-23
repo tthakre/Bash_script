@@ -1,0 +1,45 @@
+#conatiner import variable and data from game-demo conatiner
+apiVersion: v1
+kind: Pod
+metadata: 
+   name: configmap_demo_pod
+
+spec: 
+   contines: 
+      - name: demo
+        iamege: alpine
+        command: ["sleep", "3600"]
+        env:
+           #define the env variable
+          - name: PLAYER_INITIAL_LIFE
+                 #notice that this case is diffrent
+                 #from the keyname is the configmap
+            valueFrom:
+               configMapKeyRef:
+                  name: game-demo
+                     #the configmap value is come from
+                  key: player_inititial_lives
+
+          - name: UI_PROPERTIES_FILE_NAME
+            valueFrom:
+               configMapKeyRef:
+                  name: game-demo
+                  key: ui_properties_file_name
+
+        volumeMounts:
+          - name: config
+            mountPath: "/config"
+            readOnly: true
+
+    volumes:
+      #you set volume as pod level ,then mount that volume inside the containerinside that path
+      - name: config
+        configMap:
+           name: game-demo  #name of the config map you want to mount
+             - key: "game.properties"
+               path: "game.properties" #dir. where thisvalue is save inside /config
+
+             - key: "user-interface.properties"
+               path: "user-interface.properties"
+ 
+

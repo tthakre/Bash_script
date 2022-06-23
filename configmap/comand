@@ -1,0 +1,14 @@
+#cmd for making conafigMap
+
+kubectl create configmap db-config  \
+> --from-literal=MYSQL_DATABASE=account \
+> --from-literal=MYSQL_ROOT_PASSWORD=passWd 
+
+
+#check by 
+
+kubectl get cm
+
+kubectl get cm db-config -o yaml
+
+kubectl describe cm db-config

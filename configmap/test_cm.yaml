@@ -1,0 +1,19 @@
+piVersion: v1   #conatiner running with this variable to injeck in other container
+kind: ConfigMap
+metadata:
+   name: gaem-demo
+
+data:
+   #poperty like key: each key mape to a single value or strings
+  plaer_initial_lives: "3"
+  vi_properties_file_name: "user-interface.properties"
+
+    #file likes keys and dataa with it
+  game_Properties: |
+     enemy. type=aliens,master
+     player. makimum-lives=5
+
+  user.interface.properties:
+     color.good=purple
+     color.good=yellow
+     allow.textmode=true

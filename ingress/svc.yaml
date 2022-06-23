@@ -1,0 +1,16 @@
+## to create service 
+
+
+apiVersion: v1
+kind: Service
+metadata: 
+   name: my-app
+
+spec:
+   ports:
+     - pot: 8080        ## frontend port of service
+       targatePort: 8080      ## backend port 
+       potocol: Tcp
+   slector:
+      run: my-app
+   type: ClusterIP

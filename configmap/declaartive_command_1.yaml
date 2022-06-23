@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: pod 
+meatadata: 
+   name: var-rm-pod
+
+spec: 
+   conatiners:
+      name: 
+      iamge: 
+      envFrom:
+         - configMapRef: 
+           name: db-config    #to injec all the thing from orthe db conatiner the variable
+
+
+# ifyou want to chose some of them then this
+#spec:
+#  containers:
+#     name: mysql-cont
+#     image: mysql:5.7
+#     env:
+#      - name: db-host
+#        volumeFrom:
+#           configMapRef: 
+#              name: db-config
+#              key: dn-host        # all inside container
+                
+
+
+
